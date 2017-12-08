@@ -26,7 +26,7 @@ class SplashScreen extends Component {
     }
 
     checkDate() {
-        if (this.state.canAttempt && this.state.anniversary === '2015-06-28') {
+        if (this.state.canAttempt && this.state.anniversary === '2014-06-28') {
             localStorage.setItem("date", this.state.anniversary);
             browserHistory.push("/");
         } else {

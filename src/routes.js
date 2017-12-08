@@ -10,7 +10,7 @@ import Splash from './global/components/Splash/SplashScreen';
  * Checks if user is logged in, if not shifts to login page
  */
 function requireAuth(nextState, replace) {
-    if (!localStorage.getItem('date') || localStorage.getItem('date') !== '2015-06-28') {
+    if (!localStorage.getItem('date') || localStorage.getItem('date') !== '2014-06-28') {
         replace({
             pathname: '/splash',
             state: {nextPathname: nextState.location.pathname, search: nextState.location.search}
