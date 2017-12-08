@@ -86,13 +86,11 @@ export function updateImageTwo(url) {
     }
 }
 
-export function showEditor(editor, article, game, project) {
+export function showEditor(editor, memory) {
     return {
         type: types.GLOBAL_SHOW_EDITOR,
         show: editor,
-        article: article,
-        game: game,
-        project: project
+        editMemory: memory
     }
 }
 
@@ -119,5 +117,18 @@ export function submitThought(thought, action) {
 export function thoughtSuccess() {
     return {
         type: types.GLOBAL_THOUGHT_SUCCESS
+    }
+}
+
+export function showMemory(memory) {
+    return {
+        type: types.GLOBAL_SHOW_MEMORY,
+        memory: memory
+    }
+}
+
+export function hideMemory() {
+    return {
+        type: types.GLOBAL_HIDE_MEMORY
     }
 }

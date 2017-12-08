@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import NumberFormat from '../../../services/NumberFormat';
 import FaClock from 'react-icons/lib/fa/clock-o';
 import {connect} from 'react-redux';
+import {showMemory} from '../../actions';
 import './index.sass';
 
 class MemoryBox extends Component {
@@ -10,11 +11,12 @@ class MemoryBox extends Component {
     render() {
         const {className, ...props} = this.props;
 
-        let url = "/content/" + this.props.item.item_id + "/" + this.props.item.headline;
-
         return (<div className={classnames('MemoryBox', 'box-container', className)}>
 
-                    <a href={url}>
+                    <a href onClick={(e) => {
+                        e.preventDefault();
+                        this.props.show(this.props.item);
+                    }}>
                         {this.props.item.thumbnail_url !== null && <img src={this.props.item.thumbnail_url}/>}
                         <h2>{this.props.item.title}</h2>
 
@@ -37,8 +39,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        insertObject: (action, method, object) => {
-            dispatch();
+        show: (memory) => {
+            dispatch(showMemory(memory));
         },
     }
 }

@@ -9,7 +9,8 @@ function mapStateToProps(state) {
     return {
         user: state.header.user,
         items: state.header.items,
-        show: state.global.show
+        show: state.global.show,
+        memoryShow: state.global.memoryShow
     }
 }
 
@@ -26,7 +27,7 @@ function mapDispatchToProps(dispatch) {
             dispatch(requestItems());
         },
         editorShow: (editor) => {
-            dispatch(showEditor(editor, false, false, false));
+            dispatch(showEditor(editor, false));
         }
     }
 }

@@ -246,7 +246,7 @@ class ArticleEditor extends Component {
 
                             <div className="input-container">
                                 <label>Date</label>
-                                <input type="date" name="memory_date" onChange={this.handleInputChange}/>
+                                <input defaultValue={this.state.memory_date} type="date" name="memory_date" onChange={this.handleInputChange}/>
                             </div>
 
                             <Button onClick={(e) => {
@@ -268,7 +268,7 @@ function mapStateToProps(state, ownProps) {
         image_one: state.global.image_one,
         image_loading: state.global.image_loading,
         show: state.global.show,
-        memory: state.global.memory,
+        memory: state.global.editMemory,
         items: state.header.items
     }
 }

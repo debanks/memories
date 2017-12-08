@@ -12,10 +12,10 @@ export default function global(state = {
     image_loading: false,
     image_one: "",
     image_two: "",
-    game: false,
-    article: false,
-    project: false,
-    show: false
+    editMemory: false,
+    show: false,
+    showMemory: false,
+    memory: {}
 }, action) {
     switch (action.type) {
         case types.GLOBAL_CONTENT_REQUEST:
@@ -53,16 +53,12 @@ export default function global(state = {
         case types.GLOBAL_SHOW_EDITOR:
             return Object.assign({}, state, {
                 show: action.show,
-                game: action.game,
-                article: action.article,
-                project: action.project
+                editMemory: action.editMemory
             });
         case types.GLOBAL_HIDE_EDITOR:
             return Object.assign({}, state, {
                 show: false,
-                game: false,
-                article: false,
-                project: false
+                editMemory: false
             });
         case types.GLOBAL_THOUGHT_REQUEST:
             return Object.assign({}, state, {
@@ -72,6 +68,16 @@ export default function global(state = {
         case types.GLOBAL_THOUGHT_SUCCESS:
             return Object.assign({}, state, {
                 thumbnail_url: ""
+            });
+        case types.GLOBAL_SHOW_MEMORY:
+            return Object.assign({}, state, {
+                memoryShow: true,
+                memory: action.memory
+            });
+        case types.GLOBAL_HIDE_MEMORY:
+            return Object.assign({}, state, {
+                memoryShow: false,
+                memory: {}
             });
         default:
             return state

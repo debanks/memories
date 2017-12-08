@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import {Navbar, MenuItem, NavDropdown, Nav, Button} from 'react-bootstrap';
 import RootCloseWrapper from 'react-overlays/lib/RootCloseWrapper';
 import MemoryEditor from '../../global/components/Editors/MemoryEditor';
+import Memory from '../../global/components/Memory/Memory';
 
 class HeaderComponent extends Component {
 
@@ -79,6 +80,7 @@ class HeaderComponent extends Component {
                     </Navbar.Collapse>
                 </Navbar>
                 {this.props.show === 'memory' && <MemoryEditor/>}
+                {this.props.memoryShow && <Memory/>}
             </div>
         )
     }

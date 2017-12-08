@@ -1,5 +1,5 @@
 import { put, takeLatest, call } from 'redux-saga/effects';
-import {contentSuccess, globalImageSuccess, thoughtSuccess} from './actions';
+import {contentSuccess, globalImageSuccess} from './actions';
 import ApiService from '../api/ApiService';
 import * as types from './actionTypes';
 
@@ -36,21 +36,6 @@ function* uploadImage(action) {
     }
 }
 
-function* submitThought(action) {
-    try {
-        let response = yield call(ApiService.performRequest, "/api/thought", true, 'POST', action.thought);
-
-        if (response && response.status) {
-            yield put(thoughtSuccess());
-        } else {
-
-        }
-
-    } catch (e) {
-
-    }
-}
-
 /*
  Alternatively you may use takeLatest.
 
@@ -61,7 +46,6 @@ function* submitThought(action) {
 function* globalSaga() {
     yield takeLatest(types.GLOBAL_CONTENT_REQUEST, requestContent);
     yield takeLatest(types.GLOBAL_IMAGE_UPLOAD, uploadImage);
-    yield takeLatest(types.GLOBAL_THOUGHT_REQUEST, submitThought);
 }
 
 export default globalSaga;
