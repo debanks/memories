@@ -13,11 +13,12 @@ class MemoryBox extends Component {
 
         return (<div className={classnames('MemoryBox', 'box-container', className)}>
 
-                    <a href onClick={(e) => {
-                        e.preventDefault();
-                        this.props.show(this.props.item);
-                    }}>
-                        {this.props.item.thumbnail_url !== null && <img src={this.props.item.thumbnail_url}/>}
+                <a href onClick={(e) => {
+                    e.preventDefault();
+                    this.props.show(this.props.item);
+                }}>
+                    {this.props.item.thumbnail_url !== null && <img src={this.props.item.thumbnail_url}/>}
+                    <div className="overlay">
                         <h2>{this.props.item.title}</h2>
 
                         <p>
@@ -28,7 +29,8 @@ class MemoryBox extends Component {
                                 <FaClock/> {NumberFormat.formatTimeString(this.props.item.memory_date)}
                             </div>
                         </div>
-                    </a>
+                    </div>
+                </a>
             </div>
         )
     }

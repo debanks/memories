@@ -118,8 +118,6 @@ class ContentColumns extends Component {
                         </Col>
                     </Row>
                 </Grid>}
-                {content.length === 25 * this.props.page &&
-                <div className="view-more"><Button onClick={() => this.props.loadContent(this.props.url, this.props.page + 1)}>Load More</Button></div>}
                 {content.length === 0 && <div className="no-content"> No Content Yet</div>}
             </div>
         )
